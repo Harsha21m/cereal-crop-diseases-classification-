@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Prediction History | Cereal Crop AI</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <h1 class="logo">🌾 CropIntel</h1>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/predict-page">Predict</a></li>
+        <li><a href="/camera-page">Live Detection</a></li>
+        <li><a href="/history">History</a></li>
+        <li><a href="/logout">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="history-section">
+    <h2>Your Prediction History</h2>
+    {% if records %}
+      <table class="history-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Image Name</th>
+            <th>Prediction</th>
+            <th>Confidence</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for record in records %}
+          <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ record.image_name }}</td>
+            <td>{{ record.prediction }}</td>
+            <td>{{ '%.2f'|format(record.confidence) }}%</td>
+            <td>{{ record.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p>No predictions yet. Try uploading an image!</p>
+    {% endif %}
+  </section>
+</body>
+</html>

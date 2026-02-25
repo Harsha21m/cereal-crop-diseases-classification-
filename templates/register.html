@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register | Cereal Crop AI</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+          <h1 class="logo">🌾 CropIntel</h1>
+          <ul class="nav-links">
+            <li><a href="/" class="active">Home</a></li>
+            {% if current_user.is_authenticated %}
+              <li><a href="/predict-page">Predict</a></li>
+              <li><a href="/camera-page">Live Detection</a></li>
+              <li><a href="/logout">Logout</a></li>
+            {% else %}
+              <li><a href="/login">Login</a></li>
+              <li><a href="/register">Register</a></li>
+            {% endif %}
+          </ul>
+        </div>
+      </nav>
+<!-- Flash Messages -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <div class="flash-messages">
+      {% for category, message in messages %}
+        <div class="flash {{ category }}">{{ message }}</div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+
+  <div class="auth-container">
+    <h2>Register</h2>
+    <form method="POST">
+      <input type="text" name="username" placeholder="Username" required><br>
+      <input type="password" name="password" placeholder="Password" required><br>
+      <button type="submit">Register</button>
+      <p>Already have an account? <a href="/login">Login</a></p>
+    </form>
+  </div>
+  <footer>
+    <p>© 2025 Cereal Crop AI | Built with ❤️ using Flask</p>
+    <div class="socials">
+      <a href="#">LinkedIn</a>
+      <a href="#">GitHub</a>
+      <a href="#">Contact</a>
+    </div>
+  </footer>
+</body>
+</html>

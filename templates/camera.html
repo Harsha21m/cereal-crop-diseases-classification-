@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Detection 📸</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <h1 class="logo">🌾 CropIntel</h1>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/predict-page">Predict</a></li>
+        <li><a href="/camera-page" class="active">Live Detection</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Live Camera Section -->
+  <section class="camera-section">
+    <h2>Live Crop Leaf Detection</h2>
+    <p>Allow your camera access and capture a leaf image in real-time for analysis.</p>
+
+    <div class="camera-container">
+      <video id="camera" autoplay playsinline></video>
+      <canvas id="snapshot" style="display:none;"></canvas>
+    </div>
+
+    <div class="camera-controls">
+      <button id="captureBtn">📷 Capture & Predict</button>
+    </div>
+    <div id="result" class="result-box" style="display:none;">
+      <h3>Prediction Result</h3>
+      <img id="previewImage" src="" alt="Uploaded Image"
+           style="max-width:300px; border-radius:10px; margin:10px 0;">
+      <p><b>Disease:</b> <span id="diseaseLabel"></span></p></br>
+      <p><b>Confidence:</b> <span id="confidence"></span>%</p></br>
+      <!-- Language Selector -->
+      <div class="language-selector">
+        <label for="language"><b>Select Language:</b></label>
+        <select id="language">
+          <option value="en">English</option>
+          <option value="hi">Hindi</option>
+          <option value="kn">Kannada</option>
+        </select>
+      </div></br>
+
+      <p><b>Treatment:</b></p>
+      <p id="treatmentText" class="treatment-box"></p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Cereal Crop AI | Real-Time Detection 🌿</p>
+  </footer>
+
+  <script src="/static/js/camera.js"></script>
+</body>
+</html>

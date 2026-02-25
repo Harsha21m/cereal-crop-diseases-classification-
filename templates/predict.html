@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Predict Crop Disease 🌿</title>
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <h1 class="logo">🌾 CropIntel</h1>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/predict-page" class="active">Predict</a></li>
+        <li><a href="/history">History</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Upload Section -->
+  <section class="upload-section">
+    <h2>Upload Crop Leaf Image</h2>
+    <p>Supported formats: JPG, JPEG, PNG</p>
+    <div class="upload-box">
+      <input type="file" id="fileInput" accept="image/*" />
+      <button id="uploadBtn">Analyze</button>
+    </div>
+
+    <!-- Result Section -->
+    <div id="result" class="result-box" style="display:none;">
+      <h3>Prediction Result</h3>
+      <img id="previewImage" src="" alt="Uploaded Image"
+           style="max-width:300px; border-radius:10px; margin:10px 0;">
+      <p><b>Disease:</b> <span id="diseaseLabel"></span></p></br>
+      <p><b>Confidence:</b> <span id="confidence"></span>%</p></br>
+      <!-- Language Selector -->
+      <div class="language-selector">
+        <label for="language"><b>Select Language:</b></label>
+        <select id="language">
+          <option value="en">English</option>
+          <option value="hi">Hindi</option>
+          <option value="kn">Kannada</option>
+        </select>
+      </div></br>
+
+      <p><b>Treatment:</b></p>
+      <div id="treatmentText" class="treatment-box"></div><br>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 CropIntel | Real-Time Cereal Crop Disease Detection 🌿</p>
+  </footer>
+
+  <script src="/static/js/script.js"></script>
+</body>
+</html>
