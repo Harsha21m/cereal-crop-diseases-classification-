@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cereal Crop Disease Detection 🌾</title>
+  <link rel="stylesheet" href="/static/css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <!-- Navbar -->
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="nav-container">
+    <h1 class="logo">🌾 CropIntel</h1>
+    <ul class="nav-links">
+      <li><a href="/" class="active">Home</a></li>
+      {% if current_user.is_authenticated %}
+        <li><a href="/predict-page">Predict</a></li>
+        <li><a href="/camera-page">Live Detection</a></li>
+        <li><a href="/logout">Logout</a></li>
+        <li><a href="/history">History</a></li>
+      {% else %}
+        <li><a href="/login">Login</a></li>
+        <li><a href="/register">Register</a></li>
+      {% endif %}
+    </ul>
+  </div>
+</nav>
+<!-- Flash Messages -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <div class="flash-messages">
+      {% for category, message in messages %}
+        <div class="flash {{ category }}">{{ message }}</div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Empowering Agriculture with AI</h2>
+      <p>Detect diseases in <b>Wheat</b>, <b>Corn</b>, and <b>Rice</b> leaves instantly using our deep learning model.</p>
+      <a href="/predict-page" class="cta-btn">Try the Predictor</a>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="how-it-works">
+    <div class="container">
+      <h2>How It Works</h2>
+      <div class="steps-container">
+        <div class="step-card">
+          <h3>1. Upload Image</h3>
+          <p>Upload a clear image of your crop leaf for analysis.</p>
+        </div>
+        <div class="step-card">
+          <h3>2. AI Analysis</h3>
+          <p>Our intelligent model processes the image to detect diseases.</p>
+        </div>
+        <div class="step-card">
+          <h3>3. Get Results</h3>
+          <p>Receive instant diagnosis and recommended treatments.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features">
+    <div class="container">
+      <h2>Key Features</h2>
+      <div class="features-grid">
+        <div class="feature-item">
+          <i class="fas fa-microscope"></i>
+          <h3>Accurate Detection</h3>
+          <p>Utilizes advanced CNN models for precise disease identification.</p>
+        </div>
+        <div class="feature-item">
+          <i class="fas fa-leaf"></i>
+          <h3>Multi-Crop Support</h3>
+          <p>Supports Wheat, Corn, and Rice crops for comprehensive coverage.</p>
+        </div>
+        <div class="feature-item">
+          <i class="fas fa-clock"></i>
+          <h3>Real-time Analysis</h3>
+          <p>Get immediate results, enabling quick action and intervention.</p>
+        </div>
+        <div class="feature-item">
+          <i class="fas fa-hand-holding-heart"></i>
+          <h3>Farmer-Friendly</h3>
+          <p>Easy-to-use interface designed with farmers in mind.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Cereal Crop AI | Built with ❤️ using Flask</p>
+    <div class="socials">
+      <a href="#">LinkedIn</a>
+      <a href="#">GitHub</a>
+      <a href="#">Contact</a>
+    </div>
+  </footer>
+</body>
+</html>
