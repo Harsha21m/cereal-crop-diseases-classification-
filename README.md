@@ -17,31 +17,6 @@ Develop a user-friendly web interface for farmers and agricultural users.
 
 Enable real-time detection using a camera.
 
-🏗 Project Structure
-Cereal-Crop-Disease-Detection
-│
-├── dataset/
-├── models/
-│   ├── crop_model.h5
-│   ├── mobilenet_model.h5
-│
-├── src/
-│   ├── preprocess.py
-│   ├── train_model.py
-│   ├── train_mobilenet.py
-│   ├── predict.py
-│
-├── static/
-│   ├── css/
-│   ├── js/
-│
-├── templates/
-│   ├── index.html
-│   ├── predict.html
-│   ├── camera.html
-│
-├── app.py
-└── README.md
 
 
 🚀 Features
